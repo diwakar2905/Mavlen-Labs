@@ -1,0 +1,234 @@
+.blog-section {
+    padding: 80px 0px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.blog-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #0a0a0a;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+.blog-subtitle {
+    font-size: 1.05rem;
+    color: #6b7280;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.blog-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.blog-grid.one {
+    grid-template-columns: 1fr;
+}
+
+/* Blog Card - Full Image with Overlays */
+.blog-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container with Loading State */
+.blog-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    overflow: hidden;
+}
+
+/* Shimmer loading effect */
+.blog-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent);
+    animation: shimmer 2s infinite;
+    z-index: 1;
+}
+
+.blog-image-container.loaded::before {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Full Image Background */
+.blog-image {
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blog-image-container.loaded .blog-image {
+    opacity: 1;
+}
+
+/* Badges - Top Left (White background) */
+.blog-badges {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+}
+
+.blog-date-badge,
+.blog-category-badge {
+    background: #ffffff;
+    color: #000000;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    display: inline-block;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-category-badge {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Title Box - Top Right (White background) */
+.blog-title-box {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    max-width: 55%;
+    background: #ffffff;
+    padding: 24px 28px;
+    border-radius: 16px;
+    z-index: 2;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.blog-title-box h3 {
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: #000000;
+    margin: 0;
+}
+
+/* Arrow Button - Bottom Right */
+.blog-arrow-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-arrow-btn span {
+    font-size: 1.1rem;
+    font-weight: normal;
+    color: #000000;
+}
+
+.blog-card:hover .blog-arrow-btn {
+    transform: rotate(45deg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .blog-section {
+        padding: 60px 20px;
+    }
+
+    .blog-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .blog-card {
+        min-height: 400px;
+        height: 400px;
+    }
+
+    .blog-badges {
+        top: 16px;
+        left: 16px;
+        gap: 6px;
+    }
+
+    .blog-date-badge,
+    .blog-category-badge {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .blog-title-box {
+        top: 16px;
+        right: 16px;
+        max-width: calc(100% - 32px);
+        padding: 16px 20px;
+    }
+
+    .blog-title-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .blog-arrow-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .blog-arrow-btn span {
+        font-size: 1.1rem;
+    }
+}

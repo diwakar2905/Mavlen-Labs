@@ -1,0 +1,11 @@
+/* Hero illustration layout */
+.illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustration img {
+  width: 100%;
+  max-width: 520px;
+}

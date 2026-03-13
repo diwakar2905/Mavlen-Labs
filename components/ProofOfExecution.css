@@ -1,0 +1,191 @@
+.poe-section {
+    position: relative;
+    padding: 120px 40px;
+    background: #0a0a0a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: calc((40 / 1440) * 100vw) calc((4 / 1440) * 100vw);
+    margin: 20px 0;
+}
+
+.poe-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- HEADER (Matches Services) ---------- */
+.poe-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+.poe-eyebrow {
+    font-size: 0.85rem;
+    color: #8a8a8a;
+    letter-spacing: 0.02em;
+}
+
+.poe-left h1 {
+    font-size: clamp(3rem, 6vw, 4.4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    margin-top: 14px;
+}
+
+.poe-left h1 span {
+    background: linear-gradient(120deg, #9a9a9a, #6c6c6c, #444444);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.poe-right p {
+    font-size: 1rem;
+    color: #8a8a8a;
+    line-height: 1.6;
+    max-width: 420px;
+    margin-top: 38px;
+}
+
+/* ---------- GRID ---------- */
+.poe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ---------- COMPACT PREMIUM CARDS ---------- */
+.poe-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-decoration: none;
+    cursor: pointer;
+    height: 100%;
+}
+
+.poe-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.poe-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-screenshot {
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.poe-card:hover .project-screenshot {
+    transform: scale(1.05);
+}
+
+.poe-card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.poe-card-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.poe-description-line {
+    font-size: 0.9rem;
+    color: #8a8a8a;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.poe-tap-indicator {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.poe-card:hover .poe-tap-indicator {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.poe-arrow {
+    transition: transform 0.3s ease;
+}
+
+.poe-card:hover .poe-arrow {
+    transform: translateX(4px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+    .poe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .poe-section {
+        padding: 60px 24px;
+        border-radius: 32px;
+    }
+
+    .poe-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .poe-right p {
+        margin-top: 0;
+    }
+
+    .poe-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .poe-left h1 {
+        font-size: 2.8rem;
+    }
+
+    .poe-tap-indicator {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

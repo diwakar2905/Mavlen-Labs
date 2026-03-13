@@ -1,0 +1,380 @@
+/* Section wrapper */
+.workflow-section {
+    min-height: 50vh;
+    padding: 80px 40px 80px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.workflow-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+/* Main heading */
+.workflow-main-heading {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 600;
+    margin-bottom: 60px;
+    text-align: center;
+    color: #0a0a0a;
+}
+
+/* Stepper - horizontal line with cards */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.stepper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual step card */
+.step-card {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Image above the line */
+.step-image-wrapper {
+    margin-bottom: 20px;
+}
+
+.step-image {
+    width: 120px;
+    height: 88px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.workflow-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(90%);
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.step-card.active .step-image {
+    background: transparent;
+}
+
+.step-card.active .workflow-icon {
+    filter: brightness(0) saturate(100%);
+    opacity: 1;
+}
+
+/* Dot on the line */
+.step-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #999;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.step-card.active .step-dot {
+    background: #000;
+    width: 16px;
+    height: 16px;
+    opacity: 1;
+}
+
+/* Content below the line */
+.step-content {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.step-title {
+    font-size: 21px;
+    line-height: 1.3;
+    color: #999;
+    margin: 0 0 8px 0;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.step-card.active .step-title {
+    color: #000;
+    font-weight: 600;
+}
+
+.step-number {
+    font-size: 68px;
+    font-weight: 300;
+    opacity: 0.2;
+    line-height: 1;
+    display: block;
+    color: #999;
+    transition: all 0.3s ease;
+}
+
+.step-card.active .step-number {
+    color: #000;
+    opacity: 0.4;
+}
+
+/* Connecting line between cards */
+.connecting-line {
+    height: 2px;
+    flex: 1;
+    background: #e5e5e5;
+    position: relative;
+    margin: 0 -60px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.connecting-line.active {
+    background: #000;
+}
+
+/* Content area */
+.content-area {
+    flex: 1;
+    margin: 0 80px;
+    text-align: center;
+}
+
+.step-heading {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #0a0a0a;
+    min-height: 28px;
+    line-height: 1.3;
+}
+
+.step-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #5a5a5a;
+    max-width: 800px;
+    margin: 0 auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: calc(16px * 1.7 * 3);
+}
+
+.step-description .highlight {
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Buttons and content wrapper */
+.buttons-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    height: 25vh;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 24px;
+    border: 1px solid #000;
+    background: white;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.nav-button:hover:not(:disabled) {
+    background: #000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: #999;
+    color: #999;
+}
+
+.nav-button .arrow {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .stepper {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 20px 0;
+    }
+
+    .step-card {
+        width: 180px;
+    }
+
+    .step-image {
+        width: 90px;
+        height: 66px;
+        font-size: 36px;
+    }
+
+    .step-title {
+        font-size: 16px;
+    }
+
+    .step-number {
+        font-size: 48px;
+    }
+
+    .connecting-line {
+        margin: 0 -40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .workflow-section {
+        padding: 40px 16px;
+    }
+
+    .workflow-main-heading {
+        font-size: 1.7rem;
+        margin-bottom: 24px;
+    }
+
+    .stepper {
+        margin-bottom: 24px;
+        gap: 4px;
+        padding-bottom: 10px;
+    }
+
+    .step-card {
+        width: 100px;
+        flex: 0 0 auto;
+    }
+
+    .step-image {
+        width: 44px;
+        height: 38px;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .workflow-icon {
+        padding: 4px;
+    }
+
+    .step-title {
+        font-size: 11px;
+        margin-bottom: 4px;
+    }
+
+    .step-number {
+        font-size: 20px;
+    }
+
+    .step-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .step-card.active .step-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .connecting-line {
+        margin: 0 -30px;
+        min-width: 20px;
+        height: 1px;
+    }
+
+    .buttons-content-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        height: auto;
+        justify-content: space-between;
+    }
+
+    .content-area {
+        order: 0;
+        margin: 0 0 20px 0;
+        width: 100%;
+        text-align: center;
+        flex: 0 0 100%;
+    }
+
+    .step-heading {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        min-height: auto;
+    }
+
+    .step-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 6.5rem;
+        /* Reserve space for 5 lines (0.85 * 1.5 * 5 ≈ 6.4) */
+    }
+
+    /* Buttons row */
+    .prev-button {
+        order: 1;
+        width: calc(50% - 6px);
+    }
+
+    .next-button {
+        order: 2;
+        width: calc(50% - 6px);
+    }
+
+    .nav-button {
+        padding: 10px 12px;
+        font-size: 13px;
+        justify-content: center;
+    }
+}

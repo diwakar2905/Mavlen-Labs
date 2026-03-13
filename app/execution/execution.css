@@ -1,0 +1,516 @@
+.execution-page {
+    min-height: 100vh;
+    padding: 120px 40px 80px 40px;
+    background: #fff;
+    color: #000;
+}
+
+.execution-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Back Button */
+.back-btn {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    background: #000;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.back-btn span {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Header */
+.execution-header-section {
+    margin-bottom: 120px;
+}
+
+.execution-eyebrow {
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.execution-title {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    margin: 20px 0;
+    color: #000;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.execution-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 650px;
+    line-height: 1.4;
+}
+
+/* Content Blocks */
+.execution-content-block {
+    margin-bottom: 180px;
+}
+
+.block-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 4px;
+    margin-bottom: 60px;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* Section 1: Clients List */
+.clients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+}
+
+.client-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    background: #ffffff;
+    padding: 26px;
+    border-radius: 16px;
+    border: 1px solid rgba(16,24,40,0.04);
+    box-shadow: 0 10px 30px rgba(16,24,40,0.03);
+}
+
+.client-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px rgba(16,24,40,0.06);
+}
+
+.client-card.reverse .client-visual {
+    order: 2;
+}
+
+.client-card.reverse .client-info {
+    order: 1;
+}
+
+.client-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 14 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg,#ffffff,#fbfbfb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(16,24,40,0.04);
+}
+
+/* For initiative (HOOD SQUARE) we want the whole image visible (no crop) */
+.initiative-image-wrap {
+    aspect-ratio: unset;
+    max-height: 360px;
+    padding: 12px; /* create breathing room for contain */
+    background: #fafafa;
+}
+
+.styled-image {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    padding: 0;
+    transform: scale(1.02);
+    transition: transform 0.45s ease, filter 0.35s ease;
+}
+
+.client-card:hover .styled-image {
+    transform: scale(1.06);
+    filter: saturate(1.05) contrast(1.02);
+}
+
+.status-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+}
+
+.industry-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.client-info h2 {
+    font-size: 1.9rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+    line-height: 1.12;
+}
+
+.main-desc {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.mini-case {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.case-item strong {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+}
+
+.case-item p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.outcome-list p {
+    color: #111 !important;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+/* Section 2: Systems Grid */
+.systems-intro {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: -40px;
+    margin-bottom: 60px;
+}
+
+.systems-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.system-card {
+    background: #fbfbfb;
+    border: 1px solid #eee;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+.system-card:hover {
+    transform: translateY(-5px);
+    border-color: #ddd;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.system-image-area {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #f0f0f0;
+}
+
+.system-tag {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: #000;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.system-info-area {
+    padding: 32px;
+}
+
+.system-info-area h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.positioning {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.sub-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.tech {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+/* Section 3: Initiatives */
+.execution-content-block.marketplace-block {
+    margin-bottom: 0;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.initiative-focus {
+    background: #fafafa;
+    border-radius: 40px;
+    padding: 24px 32px;
+    border: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+    max-height: 80vh;
+}
+
+.initiative-focus:hover {
+    border-color: #ddd;
+    background: #f8f8f8;
+}
+
+.initiative-focus:hover .initiative-img {
+    transform: scale(1.15);
+}
+
+.initiative-header {
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.initiative-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.03em;
+}
+
+.initiative-header .overview {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.initiative-detailed-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    /* Center align image and text vertically */
+}
+
+.initiative-visual-side {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 280px;
+    /* Reduced to avoid shifting text below */
+    background: #fdfdfd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.initiative-img {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    border-radius: 12px;
+    transform: scale(1.2);
+    /* Deepened zoom */
+    transition: transform 0.5s ease;
+}
+
+/* Fixed (non-fill) variant: static positioning and contain so full image is visible */
+.initiative-img.fixed {
+    position: static !important;
+    width: calc(100% - 24px) !important; /* account for padding */
+    height: auto !important;
+    object-fit: contain !important;
+    transform: none !important;
+}
+
+/* Contain variant for initiative image inside client-card (show full image) */
+.contained-image {
+    object-fit: contain !important;
+    transform: none !important;
+}
+
+.initiative-content-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Custom scrollbar for small areas */
+.initiative-content-side::-webkit-scrollbar {
+    width: 4px;
+}
+
+.initiative-content-side::-webkit-scrollbar-thumb {
+    background: #eee;
+    border-radius: 4px;
+}
+
+.content-item h4 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 4px;
+}
+
+.content-item p,
+.dot-list li {
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+.dot-list {
+    list-style: none;
+    padding: 0;
+}
+
+.dot-list li {
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.dot-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #000;
+}
+
+.final-authority-blurb {
+    margin-top: 100px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-authority-blurb p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .client-card,
+    .systems-grid,
+    .initiative-detailed-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
+    }
+
+    .client-card.reverse .client-visual {
+        order: 0;
+    }
+
+    .client-card.reverse .client-info {
+        order: 1;
+    }
+
+    .initiative-focus {
+        padding: 40px 24px;
+    }
+
+    .initiative-header h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .execution-page {
+        padding: 80px 24px;
+    }
+
+    .back-btn {
+        top: 24px;
+        left: 24px;
+    }
+
+    .execution-title {
+        font-size: 2.5rem;
+    }
+
+    .mini-case {
+        grid-template-columns: 1fr;
+    }
+
+    .client-info h2 {
+        font-size: 1.8rem;
+    }
+}

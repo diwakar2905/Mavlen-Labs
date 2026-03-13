@@ -1,0 +1,233 @@
+.tech-animation {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+}
+
+/* ========== BASE ICON STYLES ========== */
+.icon {
+  position: absolute;
+  color: #222;
+  transition: transform 0.3s ease;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== CLOUD ========== */
+.cloud-icon {
+  width: 65px;
+  top: 5%;
+  left: 15%;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ========== CPU ========== */
+.cpu-icon {
+  width: 55px;
+  top: 8%;
+  right: 20%;
+  animation: pulse-scale 3s ease-in-out infinite;
+}
+
+/* ========== TERMINAL ========== */
+.terminal-icon {
+  width: 70px;
+  top: 25%;
+  left: 5%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+/* ========== DATABASE ========== */
+.database-icon {
+  width: 45px;
+  bottom: 30%;
+  left: 10%;
+  animation: float 4s ease-in-out infinite 1s;
+}
+
+/* ========== GEARS ========== */
+.gears-icon {
+  width: 65px;
+  bottom: 15%;
+  right: 15%;
+}
+
+.gear-rotate {
+  animation: spin 4s linear infinite;
+  transform-origin: 22px 25px;
+}
+
+.gear-rotate-reverse {
+  animation: spin 3s linear infinite reverse;
+  transform-origin: 42px 32px;
+}
+
+/* ========== BRACKETS ========== */
+.brackets-icon {
+  width: 50px;
+  top: 45%;
+  left: 20%;
+  animation: pulse-scale 2.5s ease-in-out infinite;
+}
+
+/* ========== GIT ========== */
+.git-icon {
+  width: 40px;
+  top: 15%;
+  left: 45%;
+  animation: float 3s ease-in-out infinite 0.3s;
+}
+
+/* ========== API ========== */
+.api-icon {
+  width: 50px;
+  top: 35%;
+  right: 8%;
+  animation: rotate-slow 10s linear infinite;
+}
+
+/* ========== MOBILE ========== */
+.mobile-icon {
+  width: 35px;
+  bottom: 25%;
+  left: 35%;
+  animation: float 3.5s ease-in-out infinite 0.7s;
+}
+
+/* ========== LOCK ========== */
+.lock-icon {
+  width: 40px;
+  top: 55%;
+  right: 25%;
+  animation: pulse-scale 3s ease-in-out infinite 0.5s;
+}
+
+/* ========== ROCKET ========== */
+.rocket-icon {
+  width: 45px;
+  top: 10%;
+  right: 5%;
+  animation: rocket-fly 4s ease-in-out infinite;
+}
+
+/* ========== LIGHTNING ========== */
+.lightning-icon {
+  width: 35px;
+  bottom: 40%;
+  right: 35%;
+  animation: flash 2s ease-in-out infinite;
+}
+
+/* ========== BINARY ========== */
+.binary-icon {
+  width: 45px;
+  bottom: 8%;
+  left: 25%;
+  animation: fade-pulse 1.5s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+/* ========== WIFI ========== */
+.wifi-icon {
+  width: 50px;
+  top: 30%;
+  left: 35%;
+  animation: wifi-pulse 2s ease-in-out infinite;
+}
+
+/* ========== SETTINGS ========== */
+.settings-icon {
+  width: 50px;
+  bottom: 10%;
+  right: 40%;
+  animation: spin 8s linear infinite;
+}
+
+/* ========== CURSOR ========== */
+.cursor-icon {
+  width: 35px;
+  bottom: 35%;
+  right: 5%;
+  animation: cursor-move 4s ease-in-out infinite;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rocket-fly {
+  0%, 100% { transform: translate(0, 0) rotate(-15deg); }
+  50% { transform: translate(8px, -15px) rotate(-15deg); }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.95); }
+}
+
+@keyframes fade-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes wifi-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes cursor-move {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(8px, -8px); }
+  50% { transform: translate(15px, 0); }
+  75% { transform: translate(8px, 8px); }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .tech-animation {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .cloud-icon { width: 50px; }
+  .cpu-icon { width: 42px; }
+  .terminal-icon { width: 55px; }
+  .database-icon { width: 35px; }
+  .gears-icon { width: 50px; }
+  .brackets-icon { width: 40px; }
+  .git-icon { width: 32px; }
+  .api-icon { width: 40px; }
+  .mobile-icon { width: 28px; }
+  .lock-icon { width: 32px; }
+  .rocket-icon { width: 36px; }
+  .lightning-icon { width: 28px; }
+  .binary-icon { width: 36px; }
+  .wifi-icon { width: 40px; }
+  .settings-icon { width: 40px; }
+  .cursor-icon { width: 28px; }
+}

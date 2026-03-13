@@ -1,0 +1,236 @@
+.services-section {
+  min-height: 100vh;
+  padding: 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+  color: #0a0a0a;
+  overflow: hidden;
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ---------- HEADER ---------- */
+.services-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+.services-eyebrow {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+  letter-spacing: 0.02em;
+}
+
+.services-left h1 {
+  font-size: clamp(3rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.05;
+  margin-top: 14px;
+}
+
+.services-left h1 span {
+  background: linear-gradient(120deg, #9a9a9a, #6c6c6c, #242424);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.services-right p {
+  font-size: 1rem;
+  color: #5a5a5a;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.services-actions {
+  display: flex;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.services-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111111;
+  text-decoration: none;
+}
+
+.services-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------- MARQUEE CONTAINER ---------- */
+.services-marquee {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0 40px;
+  cursor: grab;
+  mask-image: linear-gradient(to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent);
+  -webkit-mask-image: linear-gradient(to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent);
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.services-marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.services-marquee:active {
+  cursor: grabbing;
+}
+
+/* ---------- AUTO-SCROLLING TRACK ---------- */
+.services-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+.services-marquee.paused .services-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- CARD ---------- */
+.service-card {
+  flex: 0 0 220px;
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  border-radius: 22px;
+  border: 1px solid #eeeeee;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.service-card-inner {
+  height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ---------- ICON ---------- */
+.service-icon {
+  width: 58px;
+  height: 58px;
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- FOOTER ---------- */
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* ---------- TITLE ---------- */
+.service-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+  max-width: 140px;
+  margin: 0;
+}
+
+/* ---------- ARROW ---------- */
+.service-arrow {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* ---------- CARD HOVER ---------- */
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.15);
+}
+
+.service-card:hover .service-arrow {
+  transform: rotate(45deg);
+  background: #333;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+  .services-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .services-section {
+    padding: 80px 20px;
+  }
+
+  .services-track {
+    animation-duration: 30s;
+  }
+
+  .service-card {
+    flex: 0 0 180px;
+  }
+
+  .service-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .service-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-track {
+    animation-duration: 25s;
+  }
+
+  .service-card {
+    flex: 0 0 160px;
+  }
+}

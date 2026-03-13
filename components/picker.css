@@ -1,0 +1,123 @@
+.picker-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 20px;
+    border-radius: 20px;
+    width: fit-content;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+        0 0 1px rgba(0, 0, 0, 0.1);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    gap: 16px;
+    margin-top: 20px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.picker-section {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.picker-divider {
+    width: 1px;
+    height: 180px;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0.1) 20%,
+            rgba(0, 0, 0, 0.1) 80%,
+            rgba(0, 0, 0, 0));
+}
+
+.picker-colon {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1d1d1f;
+    margin: 0 4px;
+    align-self: center;
+}
+
+.wheel-wrapper {
+    position: relative;
+    width: 70px;
+    height: 180px;
+    overflow: hidden;
+}
+
+.wheel {
+    height: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wheel::-webkit-scrollbar {
+    display: none;
+}
+
+.wheel-item {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #86868b;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.wheel-highlight {
+    position: absolute;
+    top: 72px;
+    height: 36px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.03);
+    border-top: 0.5px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    border-radius: 8px;
+}
+
+/* Enhanced selected item styling */
+.wheel-wrapper:hover .wheel-item {
+    color: #1d1d1f;
+    font-weight: 500;
+}
+
+/* Animation on scroll */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.picker-container {
+    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .picker-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .picker-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .picker-section {
+        justify-content: center;
+    }
+}

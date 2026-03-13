@@ -1,0 +1,618 @@
+/* ================================
+   Home Page – Hero
+================================ */
+
+/* Restored hero layout helpers (for hero-left / hero-right structure) */
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 24px;
+}
+
+/* stronger layout for wide hero like the screenshot */
+.hero-inner.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-left {
+  max-width: 660px;
+  padding-left: 28px; /* reduce left offset so text sits closer to left */
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 1.25rem;
+  line-height: 1.12;
+  font-weight: 600; /* reduced for a lighter appearance */
+  margin: 0 0 1rem 0;
+}
+
+.hero-title {
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.hero-tagline {
+  color: #6b7280;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+.hero-highlight {
+  color: #6b7280; /* muted grey for "product owners" and "founders" */
+  font-weight: 500; /* slightly reduced weight */
+}
+
+/* prevent specific phrases from breaking onto multiple lines */
+.no-break {
+  white-space: nowrap;
+}
+
+.hero-illustration img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Layout wrapper (optional if you already have one) */
+.hero {
+  height: auto;
+  min-height: 70vh; /* reduce vertical footprint */
+  overflow: hidden; /* prevent illustration from causing horizontal scroll */
+  padding-top: clamp(64px, 8vh, 96px); /* give breathing room from fixed navbar */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* keep text left-aligned inside the hero column */
+  text-align: left;
+  /* padding-bottom: clamp(2rem, 6vh, 5rem); */
+}
+
+.hero-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: stretch;
+  padding: 40px 0px 0 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero content styles moved to animation block below */
+.hero-content h1 span {
+  font-weight: 500;
+}
+
+.hero-content h1 .muted {
+  color: #9ca3af;
+}
+
+/* Button (can reuse your global btn styles) */
+.btn-primary {
+  background: #000;
+  color: #fff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.16s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+}
+
+.btn-primary:hover {
+  background: #111;
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #000;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+}
+
+button:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+
+/* Right side illustration */
+.hero-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+  overflow: hidden; /* contain illustration to avoid overflow at atypical zooms */
+}
+
+.hero-illustration img {
+  height: auto;
+  max-width: 130%; /* allow controlled bleed but cap below */
+  width: min(130%, 100%);
+  display: block;
+  transform: translateX(-6%); /* nudge image left */
+  transform-origin: center center;
+  transition: transform 0.35s ease, max-width 0.35s ease;
+  will-change: transform;
+  object-fit: contain;
+}
+
+/* Extra-large screens: larger but constrained to avoid layout issues */
+@media (min-width: 1400px) {
+  .hero-illustration img {
+    /* keep a generous scale on very large screens but cap it to avoid overflow at zoom */
+    max-width: 220%;
+    transform: translateX(-8%) scale(1.45);
+  }
+}
+
+/* Defensive caps for slightly zoomed-out views (e.g., mac default 90%) */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .hero-illustration img {
+    width: 100%;
+    max-width: 140%;
+    transform: translateX(-4%) scale(1.05);
+  }
+}
+.hero-gif {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ensure gif stays beneath the fixed nav */
+.hero-gif {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+/* ================================
+     Responsive
+  ================================ */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+
+  /* let the hero expand naturally on smaller screens so content (video) pushes footer down */
+  .hero {
+    height: auto;
+    min-height: auto;
+    padding: 96px 0 48px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* explicitly stack content then illustration/video on mobile */
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-illustration {
+    order: 2;
+  }
+
+  /* cap hero image on smaller screens to avoid overflow */
+  .hero-illustration img {
+    transform: none !important;
+    max-width: 92% !important;
+  }
+
+  /* ensure hero text has breathing room from the navbar */
+  .hero-content {
+    padding-top: clamp(48px, 8vh, 80px);
+  }
+
+  /* make gif visible and centered under the text */
+  .hero-gif {
+    display: block;
+    margin: 0 auto;
+    max-width: 92%;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .hero-content h1 {
+    margin: 0 15px 0 15px;
+    font-size: 1.5rem !important;
+  }
+
+  .hero-content p {
+    margin: 0 15px 0 15px;
+
+  }
+
+  .hero-actions {
+    margin: 0 15px 0 15px;
+    align-items: start !important;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 72px 0;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* prevent the video from overlapping footer by capping its height */
+  .hero-video {
+    max-height: calc(100vh - 220px);
+    width: auto;
+  }
+
+  /* tighter spacing between paragraph and actions on small screens */
+  .hero-content h1 {
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-content p {
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-actions {
+    gap: 0rem;
+  }
+
+  /* mobile: make hero text occupy the primary vertical space above the video */
+  .hero-grid {
+    align-items: start;
+  }
+
+  .hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(60vh - 40px);
+    padding-top: clamp(40px, 7vh, 64px);
+  }
+
+  /* hide manual line breaks in the H1 on small phones so the heading flows naturally */
+  .hero-content h1 br {
+    display: none;
+  }
+
+  /* scale the headline down for very small phones */
+  @media (max-width: 420px) {
+    .hero-content h1 {
+      font-size: 1.4rem;
+      line-height: 1.18;
+    }
+  }
+}
+
+/* Additional hero styles moved from global CSS */
+.hero-visual {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -120px;
+  background: radial-gradient(circle at 10% 0%,
+      rgba(37, 99, 255, 0.07),
+      transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(37, 99, 255, 0.09), transparent 55%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+
+.badge-soft {
+  background: var(--accent-soft);
+  border-color: rgba(37, 99, 255, 0.18);
+}
+
+.badge-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #999999;
+}
+
+.badge-text {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #777777;
+}
+
+.hero-title-accent {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 26px;
+  font-weight: 400;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.14;
+  margin-bottom: 22px;
+}
+
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+}
+
+.hero-trust-label {
+  font-size: 12px;
+  color: #777777;
+}
+
+.hero-trust-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill-small {
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid #dfdfdf;
+  background: #ffffff;
+}
+
+.hero-right {
+  position: relative;
+  min-height: 520px;
+}
+
+.floating-card {
+  position: absolute;
+  right: 0;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
+  border: 1px solid transparent;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #111111, #555555) border-box;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  max-width: 280px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.floating-card.primary {
+  top: 0;
+}
+
+.floating-card.secondary {
+  bottom: 0;
+  right: 40px;
+  animation-delay: -4s;
+}
+
+/* Animations */
+@keyframes heroFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h1 {
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Helvetica Neue",
+    Arial;
+  font-size: 1.6rem; /* slightly reduced headline size */
+  font-weight: 600;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: #000;
+  margin-bottom: 1rem;
+
+  opacity: 0;
+  animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #6b7280;
+  margin-bottom: 2.9rem;
+
+  opacity: 0;
+  animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  opacity: 0;
+  animation: heroFadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  opacity: 0;
+  animation: heroFadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #bbbbbb;
+  margin-bottom: 10px;
+}
+
+.floating-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.floating-list li+li {
+  margin-top: 3px;
+}
+
+.floating-metric-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #bbbbbb;
+  margin-bottom: 6px;
+}
+
+.floating-metric-value {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.floating-metric-footnote {
+  font-size: 12px;
+  color: #555555;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-right {
+    margin-top: 20px;
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 64px 0 40px;
+  }
+
+  .floating-card {
+    position: relative;
+    right: auto;
+      max-width: 180%;
+      width: auto;
+      display: block;
+      transform: scale(1.25);
+      transform-origin: center center;
+      transition: transform 0.35s ease, max-width 0.35s ease;
+
+    /* Extra-large screens: slightly larger but toned down */
+    @media (min-width: 1400px) {
+      .hero-illustration img {
+        max-width: 200%;
+        transform: scale(1.35);
+      }
+    }
+  }
+}
+
+/* Disable/Simplify animations on mobile for better performance */
+@media (max-width: 768px) {
+
+  .hero-content h1,
+  .hero-content p,
+  .hero-actions,
+  .hero-right {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
